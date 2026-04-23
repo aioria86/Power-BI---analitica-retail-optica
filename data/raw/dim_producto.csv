@@ -1,0 +1,214 @@
+id_producto,nombre_modelo,marca,precio,categoria,genero,forma,material,tamano_cara
+1,VEVRA,Mango,89.9,gafas de sol,mujer,rectangular,pasta,medium
+2,NOIRA,Mango,89.9,gafas de sol,mujer,rectangular,pasta,medium
+3,AMARA,Mango,69.9,gafas de sol,mujer,cuadrada,pasta,medium
+4,SOLENE,Mango,89.9,gafas de sol,mujer,redonda,pasta,medium
+5,THESIA,Pedro del Hierro,89.9,gafas de sol,mujer,cuadrada,pasta,medium
+6,ALBA,Pedro del Hierro,89.9,gafas de sol,mujer,cuadrada,pasta,medium
+7,AUREA,Pedro del Hierro,89.9,gafas de sol,mujer,redonda,metal,medium
+8,COMTE,El Ganso,79.9,gafas de sol,unisex,hexagonal,metal,medium
+9,DOLCA,El Ganso,79.9,gafas de sol,unisex,rectangular,pasta,medium
+10,BASSA,El Ganso,79.9,gafas de sol,mujer,cat_eye,pasta,medium
+11,IBIZA,El Ganso,79.9,gafas de sol,mujer,cat_eye,pasta,medium
+12,MILD,Trendi,49.9,gafas de sol,unisex,rectangular,pasta,medium
+13,KIND,Trendi,49.9,gafas de sol,unisex,aviador,metal,medium
+14,BREEZE,Trendi,49.9,gafas de sol,unisex,aviador,metal,medium
+15,CHEER,Trendi,49.9,gafas de sol,unisex,rectangular,pasta,medium
+16,IKO,The Look,59.9,gafas de sol,mujer,redonda,metal,medium
+17,KAENA,The Look,59.9,gafas de sol,mujer,rectangular,pasta,medium
+18,ANANI,The Look,59.9,gafas de sol,mujer,redonda,pasta,medium
+19,ANGIE,Mango,89.9,gafas de sol,mujer,cuadrada,pasta,medium
+20,SPRING,Pull&Bear,49.9,gafas de sol,unisex,rectangular,pasta,medium
+21,COOL,Pull&Bear,49.9,gafas de sol,mujer,redonda,pasta,medium
+22,FIBI,Pull&Bear,49.9,gafas de sol,unisex,rectangular,pasta,medium
+23,ZHOU,Pull&Bear,59.9,gafas de sol,unisex,ovalada,metal,medium
+24,MAD,Pull&Bear,49.9,gafas de sol,mujer,rectangular,pasta,medium
+25,SONA,Pull&Bear,49.9,gafas de sol,unisex,rectangular,pasta,medium
+26,SOUND,Pull&Bear,49.9,gafas de sol,mujer,rectangular,pasta,medium
+27,LEWIS,Pull&Bear,59.9,gafas de sol,unisex,redonda,metal,medium
+28,ALEXANDER,Pull&Bear,59.9,gafas de sol,unisex,cuadrada,pasta,medium
+29,MAGNUSSEN,Pull&Bear,59.9,gafas de sol,unisex,aviador,metal,medium
+30,YUKI,Pull&Bear,59.9,gafas de sol,mujer,cat_eye,pasta,medium
+31,LORNE,Mango,89.9,gafas de sol,hombre,aviador,metal,medium
+32,THORNE,Mango,69.9,gafas de sol,hombre,rectangular,pasta,medium
+33,DORIEN,Mango,69.9,gafas de sol,hombre,rectangular,pasta,medium
+34,ERYON,Pedro del Hierro,89.9,gafas de sol,hombre,aviador,metal,medium
+35,AVALON,Pedro del Hierro,89.9,gafas de sol,hombre,aviador,metal,medium
+36,KAIROS,Pedro del Hierro,89.9,gafas de sol,hombre,rectangular,pasta,medium
+37,RIU,El Ganso,79.9,gafas de sol,hombre,redonda,pasta,medium
+38,BOIX,El Ganso,79.9,gafas de sol,hombre,rectangular,pasta,medium
+39,SAURA,El Ganso,79.9,gafas de sol,hombre,redonda,pasta,medium
+40,CASTELL,El Ganso,79.9,gafas de sol,hombre,rectangular,pasta,medium
+41,ZAIM,The Look,59.9,gafas de sol,hombre,redonda,pasta,medium
+42,RAEL,The Look,59.9,gafas de sol,hombre,redonda,pasta,medium
+43,JEN,Mango,89.9,gafas de sol,hombre,rectangular,pasta,medium
+44,BARLOW,Mango,69.9,gafas de sol,hombre,rectangular,pasta,medium
+45,LANDO,Pull&Bear,59.9,gafas de sol,hombre,rectangular,pasta,medium
+46,RUSSELL,Pull&Bear,59.9,gafas de sol,hombre,deportiva,pasta,large
+47,PIASTRI,Pull&Bear,59.9,gafas de sol,hombre,rectangular,pasta,medium
+48,NORRIS,Pull&Bear,59.9,gafas de sol,hombre,deportiva,pasta,large
+49,SPRING,Pull&Bear,49.9,gafas de sol,hombre,rectangular,pasta,medium
+50,FIBI,Pull&Bear,49.9,gafas de sol,hombre,rectangular,pasta,medium
+51,NICO,Pull&Bear,59.9,gafas de sol,hombre,rectangular,pasta,medium
+53,SAMI,mango kids,49.9,lentes de sol,kids,hexagonales,pasta,small
+54,KAI,mango kids,49.9,lentes de sol,kids,redondas,pasta,medium
+55,FLIN,trendi kids,29.9,lentes de sol,kids,ovaladas,pasta,small
+56,WONDER,trendi kids,29.9,lentes de sol,kids,redondas,pasta,small
+57,MIKKE,trendi kids,29.9,lentes de sol,kids,rectangulares,pasta,medium
+58,PATO,trendi kids,29.9,lentes de sol,kids,rectangulares,pasta,medium
+59,VALENTINA,trendi kids,29.9,lentes de sol,kids,cuadradas,pasta,medium
+60,LULA,trendi kids,29.9,lentes de sol,kids,cuadradas,pasta,medium
+61,ELLY,trendi kids,29.9,lentes de sol,kids,redondas,pasta,small
+62,ELURE,mango,89.9,graduadas,unisex,cuadradas,pasta,medium
+63,NUVOR,mango,89.9,graduadas,mujer,hexagonales,metal,medium
+64,KAEL,mango,89.9,graduadas,mujer,cuadradas,pasta,medium
+65,SILENZA,mango,79.9,graduadas,mujer,cat_eye,pasta,medium
+66,NOIRE,mango,89.9,graduadas,unisex,redondas,pasta,medium
+67,MIREL,mango,89.9,graduadas,unisex,cuadradas,pasta,medium
+68,AERIS,mango,89.9,graduadas,mujer,cuadradas,pasta,medium
+69,CLYNE,mango,89.9,graduadas,mujer,cuadradas,pasta,medium
+70,KAMARI,el ganso,89.9,graduadas,unisex,aviador,metal,medium
+71,MILOS,el ganso,89.9,graduadas,unisex,hexagonales,metal,medium
+72,SERENE,el ganso,89.9,graduadas,mujer,redondas,metal,medium
+73,ANNA,el ganso,99.9,graduadas,mujer,cuadradas,pasta,medium
+74,CRETA,el ganso,99.9,graduadas,mujer,hexagonales,metal,medium
+75,AGIA,el ganso,99.9,graduadas,mujer,cuadradas,pasta,medium
+76,FLORA,the look,79.9,graduadas,mujer,redondas,metal,medium
+77,SAPPHIRE,pedro del hierro,99.9,graduadas,mujer,cuadradas,pasta,medium
+78,TOPAZ,pedro del hierro,99.9,graduadas,mujer,hexagonales,metal,medium
+79,CLIVIA,the look,79.9,graduadas,mujer,cuadradas,pasta,medium
+80,IXORA,the look,79.9,graduadas,mujer,cuadradas,pasta,medium
+81,ORQUIDEA,the look,79.9,graduadas,mujer,cuadradas,pasta,medium
+82,LIORA,the look,79.9,graduadas,mujer,cuadradas,pasta,medium
+83,RUBY,pedro del hierro,109.9,graduadas,mujer,cat_eye,pasta,medium
+84,PEARL,pedro del hierro,109.9,graduadas,mujer,cuadradas,pasta,medium
+85,AGATE,pedro del hierro,109.9,graduadas,mujer,cuadradas,pasta,medium
+86,OPAL,pedro del hierro,109.9,graduadas,mujer,cuadradas,pasta,medium
+87,GARNET,pedro del hierro,109.9,graduadas,mujer,cuadradas,pasta,medium
+88,SILK,pedro del hierro,139.9,graduadas,mujer,cuadradas,metal,medium
+89,BARK,pedro del hierro,139.9,graduadas,mujer,cuadradas,metal,medium
+90,ROCK,pedro del hierro,139.9,graduadas,mujer,cuadradas,pasta,medium
+91,EARTH,pedro del hierro,139.9,graduadas,mujer,aviador,metal,medium
+92,LINEN,pedro del hierro,139.9,graduadas,mujer,cuadradas,pasta,medium
+93,HOOMANS,pedro del hierro,89.9,graduadas,mujer,redondas,metal,medium
+94,CAMPBELL,mango,79.9,graduadas,unisex,redondas,pasta,medium
+95,HAASTER,mango,89.9,graduadas,unisex,redondas,metal,medium
+96,DESIRE,pull&bear,84.9,graduadas,mujer,cuadradas,pasta,medium
+97,WITH,pull&bear,84.9,graduadas,mujer,rectangulares,pasta,medium
+98,SONG,pull&bear,84.9,graduadas,mujer,redondas,metal,medium
+99,WHERE,pull&bear,84.9,graduadas,mujer,rectangulares,metal,medium
+100,WAVE,pull&bear,64.9,graduadas,mujer,redondas,pasta,medium
+101,LIGHTS,pull&bear,64.9,graduadas,mujer,rectangulares,pasta,medium
+102,CITY,pull&bear,64.9,graduadas,unisex,cuadradas,pasta,medium
+103,ONE,pull&bear,84.9,graduadas,mujer,cuadradas,pasta,medium
+104,VARELA,pull&bear,84.9,graduadas,unisex,redondas,metal,medium
+105,FLORIAN,pull&bear,84.9,graduadas,unisex,redondas,metal,medium
+106,MARINA,pull&bear,84.9,graduadas,unisex,cuadradas,pasta,medium
+107,MARINA_2,pull&bear,84.9,graduadas,mujer,cuadradas,pasta,medium
+108,ARIADNA,pull&bear,84.9,graduadas,mujer,redondas,metal,medium
+109,REBEKA,pull&bear,84.9,graduadas,mujer,cuadradas,pasta,medium
+110,ISADORA,pull&bear,84.9,graduadas,mujer,cuadradas,pasta,medium
+111,NADIA,pull&bear,84.9,graduadas,unisex,redondas,metal,medium
+112,NUNIER,pull&bear,64.9,graduadas,mujer,cuadradas,pasta,medium
+113,LU,pull&bear,64.9,graduadas,unisex,cuadradas,pasta,medium
+114,BEA,trendi,49.9,graduadas,mujer,rectangulares,pasta,medium
+115,MOZI,trendi,49.9,graduadas,mujer,rectangulares,pasta,medium
+116,ERI,trendi,49.9,graduadas,mujer,rectangulares,pasta,medium
+117,SIA,trendi,49.9,graduadas,mujer,rectangulares,pasta,medium
+118,NUO,trendi,49.9,graduadas,mujer,cat_eye,pasta,medium
+119,LUSH,trendi,49.9,graduadas,unisex,aviador,metal,medium
+120,SHINE,trendi,49.9,graduadas,mujer,aviador,metal,medium
+121,CHARM,trendi,49.9,graduadas,mujer,cat_eye,pasta,medium
+122,BLISS,trendi,49.9,graduadas,mujer,rectangulares,pasta,medium
+123,EKO,trendi,49.9,graduadas,hombre,rectangulares,pasta,medium
+124,VIO,trendi,49.9,graduadas,hombre,rectangulares,pasta,medium
+125,REXO,trendi,49.9,graduadas,hombre,rectangulares,pasta,medium
+126,MOA,trendi,49.9,graduadas,hombre,rectangulares,metal,medium
+127,LOWEN,mango,79.9,graduadas,hombre,rectangulares,pasta,medium
+128,ELAND,mango,79.9,graduadas,hombre,rectangulares,pasta,medium
+129,LIOR,mango,79.9,graduadas,hombre,rectangulares,pasta,medium
+130,KAMARI,el ganso,89.9,graduadas,hombre,hexagonales,metal,medium
+131,MILOS,el ganso,89.9,graduadas,hombre,hexagonales,metal,medium
+132,PSILI,el ganso,99.9,graduadas,hombre,rectangulares,pasta,medium
+133,MYRTHOS,el ganso,99.9,graduadas,hombre,rectangulares,pasta,medium
+134,AMMOS,el ganso,99.9,graduadas,hombre,rectangulares,pasta,medium
+135,STILL,trendi,49.9,graduadas,hombre,rectangulares,metal,medium
+136,ZEN,trendi,49.9,graduadas,hombre,rectangulares,metal,medium
+137,HOPE,trendi,49.9,graduadas,hombre,rectangulares,metal,medium
+138,WAVES,trendi,49.9,graduadas,hombre,rectangulares,metal,medium
+139,LUSH,trendi,49.9,graduadas,hombre,aviador,metal,medium
+140,SHINE,trendi,49.9,graduadas,hombre,redondas,metal,medium
+141,NEST,trendi,49.9,graduadas,hombre,rectangulares,pasta,medium
+142,JOY,trendi,49.9,graduadas,hombre,rectangulares,pasta,medium
+143,ELAN,the look,79.9,graduadas,hombre,rectangulares,pasta,medium
+144,NUBA,the look,79.9,graduadas,hombre,rectangulares,pasta,medium
+145,COSTUS,the look,79.9,graduadas,hombre,rectangulares,pasta,medium
+146,NOA,the look,79.9,graduadas,hombre,rectangulares,pasta,medium
+147,SPINEL,pedro del hierro,99.9,graduadas,hombre,rectangulares,metal,medium
+148,SUNSTONE,pedro del hierro,99.9,graduadas,hombre,rectangulares,metal,medium
+149,JET,pedro del hierro,109.9,graduadas,hombre,rectangulares,pasta,medium
+150,AMBER,pedro del hierro,109.9,graduadas,hombre,rectangulares,pasta,medium
+151,JASPER,pedro del hierro,99.9,graduadas,hombre,rectangulares,pasta,medium
+152,BERYL,pedro del hierro,99.9,graduadas,hombre,rectangulares,pasta,medium
+153,ONYX,pedro del hierro,99.9,graduadas,hombre,rectangulares,pasta,medium
+154,SILK,pedro del hierro,139.9,graduadas,hombre,rectangulares,pasta,medium
+155,WOOD,pedro del hierro,139.9,graduadas,hombre,rectangulares,pasta,medium
+156,CLAY,pedro del hierro,139.9,graduadas,hombre,rectangulares,pasta,medium
+157,MOSS,pedro del hierro,139.9,graduadas,hombre,rectangulares,pasta,medium
+158,EARTH,pedro del hierro,139.9,graduadas,hombre,rectangulares,pasta,medium
+159,HOOMANS,pedro del hierro,89.9,graduadas,hombre,redondas,metal,medium
+160,HEINER,mango,89.9,graduadas,hombre,rectangulares,pasta,medium
+161,FRANKE,mango,79.9,graduadas,hombre,rectangulares,pasta,medium
+162,CAMPBELL,mango,79.9,graduadas,hombre,redondas,pasta,medium
+163,ADUT,mango,89.9,graduadas,hombre,rectangulares,pasta,medium
+164,HAASTER,mango,89.9,graduadas,hombre,redondas,metal,medium
+165,DAY,pull&bear,84.9,graduadas,hombre,rectangulares,pasta,medium
+166,SUNDAY,pull&bear,84.9,graduadas,hombre,rectangulares,pasta,medium
+167,STAY,pull&bear,84.9,graduadas,hombre,rectangulares,metal,medium
+168,SONG,pull&bear,84.9,graduadas,hombre,redondas,metal,medium
+169,WHERE,pull&bear,84.9,graduadas,hombre,rectangulares,metal,medium
+170,WAYS,pull&bear,84.9,graduadas,hombre,rectangulares,metal,medium
+171,WAVE,pull&bear,64.9,graduadas,hombre,rectangulares,pasta,medium
+172,LIGHTS,pull&bear,64.9,graduadas,hombre,rectangulares,pasta,medium
+173,CITY,pull&bear,64.9,graduadas,hombre,rectangulares,pasta,medium
+174,VARELA,pull&bear,84.9,graduadas,hombre,rectangulares,pasta,medium
+175,FLORIAN,pull&bear,84.9,graduadas,hombre,redondas,metal,medium
+176,MARINA,pull&bear,84.9,graduadas,hombre,rectangulares,pasta,medium
+177,HUGO,pull&bear,84.9,graduadas,hombre,rectangulares,pasta,medium
+178,PHILLIPE,pull&bear,64.9,graduadas,hombre,rectangulares,pasta,medium
+179,ISADORA,pull&bear,84.9,graduadas,hombre,rectangulares,pasta,medium
+180,CARLA,pull&bear,84.9,graduadas,hombre,rectangulares,pasta,medium
+181,NADIA,pull&bear,84.9,graduadas,hombre,redondas,metal,medium
+182,DIDAC,pull&bear,84.9,graduadas,hombre,rectangulares,metal,medium
+183,LU,pull&bear,64.9,graduadas,hombre,rectangulares,pasta,medium
+184,HECTOR,pull&bear,84.9,graduadas,hombre,rectangulares,metal,medium
+185,LEEDS,pull&bear,64.9,graduadas,hombre,rectangulares,pasta,medium
+186,ELURE,mango,89.9,graduadas,hombre,rectangulares,pasta,medium
+187,NOIRE,mango,89.9,graduadas,hombre,rectangulares,pasta,medium
+188,MIREL,mango,89.9,graduadas,hombre,rectangulares,pasta,medium
+189,ZAN,mango kids,69.9,graduadas,kids,redondas,pasta,small
+190,ELI,mango kids,69.9,graduadas,kids,hexagonales,pasta,small
+191,AROHA,mango kids,69.9,graduadas,kids,hexagonales,pasta,small
+192,MARIO,trendi kids,45.9,graduadas,kids,rectangulares,pasta,small
+193,PAULA,trendi kids,45.9,graduadas,kids,redondas,pasta,small
+194,NIVA,the look,99.9,graduadas,mujer,redondas,pasta,medium
+195,MIKA,the look,99.9,graduadas,mujer,hexagonales,pasta,medium
+196,MAUI,el ganso,119.9,graduadas,unisex,rectangulares,pasta,medium
+197,ZANTE,el ganso,119.9,graduadas,unisex,rectangulares,pasta,medium
+198,FAROE,el ganso,119.9,graduadas,unisex,rectangulares,pasta,medium
+199,CAPRI,el ganso,109.9,graduadas,unisex,rectangulares,pasta,medium
+200,BALI,el ganso,109.9,graduadas,unisex,rectangulares,pasta,medium
+201,ELBA,el ganso,109.9,graduadas,unisex,rectangulares,pasta,medium
+202,TAINU,the look,99.9,graduadas,unisex,aviador,metal,medium
+203,AURUM,pedro del hierro,129.9,graduadas,unisex,rectangulares,pasta,medium
+204,SERAPH,pedro del hierro,129.9,graduadas,unisex,rectangulares,pasta,medium
+205,SIBILA,pedro del hierro,129.9,graduadas,mujer,cat_eye,pasta,medium
+206,ISIS,pedro del hierro,129.9,graduadas,mujer,cat_eye,pasta,medium
+207,EMERALD,pedro del hierro,129.9,graduadas,mujer,cuadradas,pasta,medium
+208,BLEACH,trendi,69.9,graduadas,unisex,rectangulares,pasta,medium
+209,CHROME,trendi,69.9,graduadas,unisex,rectangulares,metal,medium
+210,BRONTE,trendi,69.9,graduadas,mujer,cat_eye,pasta,medium
+211,PULPO,trendi kids,79.9,graduadas,kids,rectangulares,pasta,small
+212,LAU,trendi kids,79.9,graduadas,kids,redondas,pasta,small
+213,ROSE,trendi kids,79.9,graduadas,kids,redondas,pasta,small
+214,TOM,trendi kids,79.9,graduadas,kids,rectangulares,pasta,small
