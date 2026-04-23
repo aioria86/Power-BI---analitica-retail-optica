@@ -1,0 +1,43 @@
+table dim_cliente
+	lineageTag: d963fd18-87ef-4397-b3b4-4b3d961f46ba
+
+	column id_cliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 20183ccf-7190-4e11-b672-f2ea4abe0049
+		summarizeBy: none
+		sourceColumn: id_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_cliente
+		dataType: string
+		lineageTag: 8f42bcb1-3f96-465f-8794-e06c3c908c7d
+		summarizeBy: none
+		sourceColumn: nombre_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_vendedor
+		dataType: int64
+		formatString: 0
+		lineageTag: 598a4909-f53a-4fba-9bd2-2ba8b998aa7f
+		summarizeBy: none
+		sourceColumn: id_vendedor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cliente = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_cliente.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_cliente", Int64.Type}, {"nombre_cliente", type text}, {"id_vendedor", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

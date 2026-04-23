@@ -1,0 +1,34 @@
+table dim_material_lente
+	lineageTag: 9188b8ac-b52a-47f7-8f88-36936c88ddae
+
+	column id_material_lente
+		dataType: int64
+		formatString: 0
+		lineageTag: 787f9dc5-ec34-42ce-ac78-c29d40336cab
+		summarizeBy: none
+		sourceColumn: id_material_lente
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_material
+		dataType: string
+		lineageTag: 23807a37-5c00-40bd-9210-bd20fe29a517
+		summarizeBy: none
+		sourceColumn: nombre_material
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_material_lente = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_material_lente.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_material_lente", Int64.Type}, {"nombre_material", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

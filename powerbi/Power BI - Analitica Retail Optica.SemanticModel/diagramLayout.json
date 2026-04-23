@@ -1,0 +1,217 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 71.469248179498777,
+            "y": 193.9277412295346
+          },
+          "nodeIndex": "bridge_producto_color",
+          "nodeLineageTag": "c3bb02b6-c2bb-4a9d-933f-93e99e6e074a",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1486.4433865014171,
+            "y": 355.14509319073818
+          },
+          "nodeIndex": "dim_bridge_lentillas",
+          "nodeLineageTag": "c9b75296-9fd6-45d8-8c30-515e5b375a81",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1045.8934019046137,
+            "y": 646.63025855768069
+          },
+          "nodeIndex": "dim_calendario",
+          "nodeLineageTag": "40cc2609-86ab-4b1b-84ed-3aeeb740823f",
+          "size": {
+            "height": 226.25,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 369.24170354216494,
+            "y": 186
+          },
+          "nodeIndex": "dim_cliente",
+          "nodeLineageTag": "d963fd18-87ef-4397-b3b4-4b3d961f46ba",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 69,
+            "y": 0
+          },
+          "nodeIndex": "dim_color",
+          "nodeLineageTag": "01bf474b-4747-44f2-b05e-a0ecfbc90368",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1491.5406369061302,
+            "y": 52.465843371831738
+          },
+          "nodeIndex": "dim_compensacion",
+          "nodeLineageTag": "3c8f145b-e8c8-424c-b8b0-6b63c35a9df2",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1232.2427663872936,
+            "y": 63.781442898228534
+          },
+          "nodeIndex": "dim_filtro_pantalla",
+          "nodeLineageTag": "9f6d00b9-eef7-4a72-9981-8fb2301e4326",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 2042.3595294235733,
+            "y": 66.294673743529643
+          },
+          "nodeIndex": "dim_material_lente",
+          "nodeLineageTag": "9188b8ac-b52a-47f7-8f88-36936c88ddae",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 70.475201834203972,
+            "y": 385.48000743945784
+          },
+          "nodeIndex": "dim_producto",
+          "nodeLineageTag": "35918d06-7cda-486a-b52f-37f22629d561",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1052.6434019046137,
+            "y": 374.38025855768069
+          },
+          "nodeIndex": "dim_producto_lentillas",
+          "nodeLineageTag": "37bc132c-f645-4365-be1a-a130a1c71e0e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 719.59090509393172,
+            "y": 0
+          },
+          "nodeIndex": "dim_sede",
+          "nodeLineageTag": "b04b54b8-be16-4fda-a430-46505af5b5c8",
+          "size": {
+            "height": 148,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1769.6434019046137,
+            "y": 56.405301104053365
+          },
+          "nodeIndex": "dim_tipo_lentilla",
+          "nodeLineageTag": "2823b8f7-e880-467e-831d-d4c49a2727d3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 728.24276638729361,
+            "y": 186
+          },
+          "nodeIndex": "dim_vendedor",
+          "nodeLineageTag": "aea8422a-48e9-4993-a198-945147b09ed8",
+          "size": {
+            "height": 153,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 537,
+            "y": 405.6166050313833
+          },
+          "nodeIndex": "hechos_ventas",
+          "nodeLineageTag": "5280a0a7-cbcf-491a-9d3d-46b7540616cc",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1494.6434019046137,
+            "y": 631.38025855768069
+          },
+          "nodeIndex": "Tabla_Medidas",
+          "nodeLineageTag": "00e2fb90-0f9d-4a5b-b852-f35d7e10f885",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 13
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 78.481855489842161,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

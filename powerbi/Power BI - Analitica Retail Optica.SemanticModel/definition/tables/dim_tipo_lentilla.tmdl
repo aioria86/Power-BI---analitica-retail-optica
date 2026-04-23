@@ -1,0 +1,34 @@
+table dim_tipo_lentilla
+	lineageTag: 2823b8f7-e880-467e-831d-d4c49a2727d3
+
+	column id_tipo_lentilla
+		dataType: int64
+		formatString: 0
+		lineageTag: 8997f654-6221-4389-b03b-addd91a5297b
+		summarizeBy: none
+		sourceColumn: id_tipo_lentilla
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_tipo
+		dataType: string
+		lineageTag: 760bfa8b-7b92-45ca-89bb-a8ec9c382d7e
+		summarizeBy: none
+		sourceColumn: nombre_tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_tipo_lentilla = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_tipo_lentilla.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_tipo_lentilla", Int64.Type}, {"nombre_tipo", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

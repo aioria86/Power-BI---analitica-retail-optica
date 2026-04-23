@@ -1,0 +1,71 @@
+table dim_sede
+	lineageTag: b04b54b8-be16-4fda-a430-46505af5b5c8
+
+	column id_sede
+		dataType: int64
+		formatString: 0
+		lineageTag: 1867efcc-36eb-427d-bb03-7a55c397275d
+		summarizeBy: none
+		sourceColumn: id_sede
+
+		annotation SummarizationSetBy = Automatic
+
+	column provincia
+		dataType: string
+		lineageTag: bd040808-7a42-428d-a076-4baa233b02ba
+		summarizeBy: none
+		sourceColumn: provincia
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 680339db-ec63-4b0a-8c27-37ce2481a488
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitud
+		dataType: double
+		lineageTag: 57a34024-c617-400c-bdca-a21c10242639
+		summarizeBy: none
+		sourceColumn: latitud
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitud
+		dataType: double
+		lineageTag: 4f504ecd-6bc4-46bf-81be-0e29dbb91ad1
+		summarizeBy: none
+		sourceColumn: longitud
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column numero_opticas
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c514176-28f2-4e5f-a1cf-e3846554eba8
+		summarizeBy: none
+		sourceColumn: numero_opticas
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_sede = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_sede.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_sede", Int64.Type}, {"provincia", type text}, {"region", type text}, {"latitud", type number}, {"longitud", type number}, {"numero_opticas", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

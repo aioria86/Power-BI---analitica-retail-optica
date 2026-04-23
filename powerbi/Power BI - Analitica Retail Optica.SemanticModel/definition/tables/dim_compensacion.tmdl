@@ -1,0 +1,34 @@
+table dim_compensacion
+	lineageTag: 3c8f145b-e8c8-424c-b8b0-6b63c35a9df2
+
+	column id_compensacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e02ba30-bbcc-4297-a14c-93dd49f022ba
+		summarizeBy: none
+		sourceColumn: id_compensacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_compensacion
+		dataType: string
+		lineageTag: 492f7118-c7b7-4643-a924-d3902bfab47e
+		summarizeBy: none
+		sourceColumn: nombre_compensacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_compensacion = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_compensacion.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_compensacion", Int64.Type}, {"nombre_compensacion", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

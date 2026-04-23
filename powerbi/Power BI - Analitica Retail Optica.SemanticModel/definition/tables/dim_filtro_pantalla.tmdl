@@ -1,0 +1,34 @@
+table dim_filtro_pantalla
+	lineageTag: 9f6d00b9-eef7-4a72-9981-8fb2301e4326
+
+	column id_filtro
+		dataType: int64
+		formatString: 0
+		lineageTag: e57d0111-8620-4f90-b3e7-3222f6452e41
+		summarizeBy: none
+		sourceColumn: id_filtro
+
+		annotation SummarizationSetBy = Automatic
+
+	column filtro
+		dataType: string
+		lineageTag: bcbd1ab2-df4a-4056-a88f-68effb920326
+		summarizeBy: none
+		sourceColumn: filtro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_filtro_pantalla = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_filtro_pantalla.csv"),[Delimiter="|", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_filtro", Int64.Type}, {"filtro", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

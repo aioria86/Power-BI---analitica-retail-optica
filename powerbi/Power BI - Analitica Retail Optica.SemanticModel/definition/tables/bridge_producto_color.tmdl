@@ -1,0 +1,35 @@
+table bridge_producto_color
+	lineageTag: c3bb02b6-c2bb-4a9d-933f-93e99e6e074a
+
+	column id_producto
+		dataType: int64
+		formatString: 0
+		lineageTag: 92d79b6c-dd2a-4997-936a-02d977a05eb2
+		summarizeBy: none
+		sourceColumn: id_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_color
+		dataType: int64
+		formatString: 0
+		lineageTag: f0960df1-c215-4782-ac60-98d555428094
+		summarizeBy: none
+		sourceColumn: id_color
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_producto_color = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\bridge_producto_color.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_producto", Int64.Type}, {"id_color", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
