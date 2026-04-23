@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "2f89a1b8926040b0c902",
+  "displayName": "Graduadas",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

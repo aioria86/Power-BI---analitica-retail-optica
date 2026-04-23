@@ -1,22 +1,201 @@
 table Tabla_Medidas
 	lineageTag: 00e2fb90-0f9d-4a5b-b852-f35d7e10f885
 
-	column Columna1
-		dataType: string
-		lineageTag: 2fd62246-489d-405e-a5d8-9b3f82598d3c
-		summarizeBy: none
-		sourceColumn: Columna1
+	measure 'Ventas Totales' = SUM(hechos_ventas[importe])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: de7c4ec8-19b0-40a8-9955-446b67d44ef8
 
-		annotation SummarizationSetBy = Automatic
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Total Ventas' = COUNT(hechos_ventas[id_venta])
+		formatString: 0
+		lineageTag: 9798b0fe-cc74-42de-aee2-3e6c8c3f0095
+
+	measure 'Clientes Únicos' = DISTINCTCOUNT(hechos_ventas[id_cliente])
+		formatString: 0
+		lineageTag: 833eb53d-9974-4cbf-a0ca-d603385a07d5
+
+	measure 'Ticket Promedio' = ```
+			
+			    DIVIDE([Ventas Totales], 
+			    [Total Ventas],
+			    0)
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 89c74e84-325b-465b-8418-dca5040d8389
+
+	measure 'Unidades Vendidas' = SUM(hechos_ventas[cantidad])
+		formatString: 0
+		lineageTag: 2f927bde-a36c-4677-9606-36ae165cdb5d
+
+	measure 'Ventas Gafas' =
+			
+			CALCULATE(
+			    [Ventas Totales],
+			    hechos_ventas[tipo_producto] = "gafas"
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f801dc93-e84f-4d88-b660-7cb758f2e522
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Ventas Lentillas' =
+			
+			CALCULATE(
+			    [Ventas Totales],
+			    hechos_ventas[tipo_producto] = "lentillas"
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: fccc8251-3a1b-4d58-b9a3-f68300991551
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure '% Gafas' = ```
+			
+			    DIVIDE([Ventas Gafas], 
+			    [Ventas Totales],
+			    0)
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 221a5466-a88c-4063-a7b1-5bf9004aa62f
+
+	measure '% Lentillas' = ```
+			
+			    DIVIDE([Ventas Lentillas], 
+			    [Ventas Totales],
+			    0)
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 688475eb-1799-41a7-9de3-01ba65565f2a
+
+	measure 'Ventas Mes Actual' =
+			
+			CALCULATE(
+			    [Ventas Totales],
+			    dim_calendario[Es Mes Actual] = TRUE()
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 54da4736-46f4-4386-ae44-ca694e1f68d6
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Ventas Año Actual' =
+			
+			CALCULATE(
+			    [Ventas Totales],
+			    dim_calendario[Es Año Actual] = TRUE()
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 26e99554-e5e9-4d70-9f34-9237d08bde23
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Ventas Mes Anterior' = ```
+			
+			CALCULATE(
+			    [Ventas Totales],
+			    DATEADD(dim_calendario[Fecha], 
+			    -1, 
+			    MONTH)
+			)
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 16328239-239d-41a3-b526-61a347672f1c
+
+	measure 'Crecimiento Mensual' =
+			
+			DIVIDE(
+			    [Ventas Totales] - [Ventas Mes Anterior],
+			    [Ventas Mes Anterior],
+			    0
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 93905355-b86b-473e-98bb-a6c191f645be
+
+	measure 'Diferencia Ventas VS mes anterior' = [Ventas Totales] - [Ventas Mes Anterior]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 89ad715f-1176-4879-a5b9-320d284e4cde
+
+	measure 'Min Ventas' =
+			
+			MINX(
+			    ALLSELECTED(dim_calendario[Fecha]),
+			    [Ventas Totales]
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 1699fff0-f1fe-4326-9617-f71319a8e949
+
+	measure 'Min Punto Ventas' =
+			
+			IF(
+			    [Ventas Totales] = [Min Ventas],
+			    [Ventas Totales],
+			    BLANK()
+			)
+		lineageTag: 5c2e552e-321b-4ca5-8e7e-2ef71d55a8f8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ticket Promedio Mes Anterior' =
+			
+			CALCULATE(
+			    [Ticket Promedio],
+			    DATEADD(
+			        dim_calendario[Fecha],
+			        -1,
+			        MONTH
+			    )
+			)
+		formatString: #,0.0\ "€";-#,0.0\ "€";#,0.0\ "€"
+		lineageTag: 94a4f9a0-7cea-4ca0-b56f-e4af4e10d3d2
+
+	measure 'Diferencia Ticket Promedio VS mes anterior' = [Ticket Promedio] - [Ticket Promedio Mes Anterior]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: a6305858-9eb9-4415-ac27-c66327a52fb1
+
+	measure '% Gafas Mes Anterior' =
+			
+			CALCULATE(
+			    [% Gafas],
+			    DATEADD(
+			        dim_calendario[Fecha],
+			        -1,
+			        MONTH
+			    )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 7f175a87-7f57-4a3a-a137-2ac0aeac02ba
+
+	measure 'Diferencia % Gafas VS mes anterior' = [% Gafas] - [% Gafas Mes Anterior]
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 90c7e52e-a5c8-41e7-a85b-00da4f7a59ad
+
+	measure '% Lentillas Mes Anterior' =
+			
+			CALCULATE(
+			    [% Lentillas],
+			    DATEADD(
+			        dim_calendario[Fecha],
+			        -1,
+			        MONTH
+			    )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: c4fd9bdd-bdbe-4833-bdb9-119c380b9585
+
+	measure 'Diferencia % Lentillas VS mes anterior' = [% Lentillas] - [% Lentillas Mes Anterior]
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 14a7dc01-6ce9-4540-9dd7-f249de2e9554
 
 	partition Tabla_Medidas = m
 		mode: import
 		source =
 				let
 				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}})
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
 				in
-				    #"Tipo cambiado"
+				    #"Columnas quitadas"
 
 	annotation PBI_NavigationStepName = Navegación
 

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "550f73dc158b13965be7",
+  "position": {
+    "x": 0,
+    "y": 54.620689655172427,
+    "z": 3000,
+    "height": 228.41379310344828,
+    "width": 315.58620689655174,
+    "tabOrder": 3000
+  },
+  "visualGroup": {
+    "displayName": "Grupo KPI Ventas",
+    "groupMode": "ScaleMode"
+  }
+}
