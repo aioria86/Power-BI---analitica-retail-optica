@@ -1,0 +1,92 @@
+table dim_producto
+	lineageTag: 35918d06-7cda-486a-b52f-37f22629d561
+
+	column id_producto
+		dataType: int64
+		formatString: 0
+		lineageTag: 72aa76b0-5f90-46db-8b0a-ac85377a786b
+		summarizeBy: none
+		sourceColumn: id_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_modelo
+		dataType: string
+		lineageTag: 777f85c9-faf9-4b7d-b3b9-ea0ccb9229ad
+		summarizeBy: none
+		sourceColumn: nombre_modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column marca
+		dataType: string
+		lineageTag: 57f75857-1138-40fe-8394-8e06021de78e
+		summarizeBy: none
+		sourceColumn: marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio
+		dataType: double
+		lineageTag: f18f1006-563e-41dd-9a75-a8796c1fc5ea
+		summarizeBy: sum
+		sourceColumn: precio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column categoria
+		dataType: string
+		lineageTag: 48172dbe-c321-4f6f-9716-e9ded891460f
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column genero
+		dataType: string
+		lineageTag: bcadd21c-f3a0-4cc4-ad64-30622fe33593
+		summarizeBy: none
+		sourceColumn: genero
+
+		annotation SummarizationSetBy = Automatic
+
+	column forma
+		dataType: string
+		lineageTag: d77d3028-d647-4f96-bcbd-5a86778cc188
+		summarizeBy: none
+		sourceColumn: forma
+
+		annotation SummarizationSetBy = Automatic
+
+	column material
+		dataType: string
+		lineageTag: 384abb13-e1ad-49bc-8f0f-8e1fd129049f
+		summarizeBy: none
+		sourceColumn: material
+
+		annotation SummarizationSetBy = Automatic
+
+	column tamano_cara
+		dataType: string
+		lineageTag: 1d211f57-42d4-4b30-bff9-bb79de5d82dd
+		summarizeBy: none
+		sourceColumn: tamano_cara
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_producto = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_producto.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_producto", Int64.Type}, {"nombre_modelo", type text}, {"marca", type text}, {"precio", type number}, {"categoria", type text}, {"genero", type text}, {"forma", type text}, {"material", type text}, {"tamano_cara", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

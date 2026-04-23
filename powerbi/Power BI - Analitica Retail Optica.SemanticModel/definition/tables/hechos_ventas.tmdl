@@ -1,0 +1,101 @@
+table hechos_ventas
+	lineageTag: 5280a0a7-cbcf-491a-9d3d-46b7540616cc
+
+	column id_venta
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a52a71f-c212-4032-b285-5797f70db41b
+		summarizeBy: sum
+		sourceColumn: id_venta
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ae554dce-9a6f-40f7-bc1f-318079d475e1
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column id_cliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 44d819a9-7bea-4c23-9935-3743b491f100
+		summarizeBy: none
+		sourceColumn: id_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_vendedor
+		dataType: int64
+		formatString: 0
+		lineageTag: aea51222-c3b2-4c72-b628-8acb668724b9
+		summarizeBy: none
+		sourceColumn: id_vendedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_producto
+		dataType: int64
+		formatString: 0
+		lineageTag: c74d16c0-d47b-4755-abdc-1b0866178937
+		summarizeBy: none
+		sourceColumn: id_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_producto
+		dataType: string
+		lineageTag: 2f830097-0635-4c5e-8d62-76c93366fdad
+		summarizeBy: none
+		sourceColumn: tipo_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 72054fca-7238-456a-953a-b468f6f7e1a7
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_unitario
+		dataType: double
+		lineageTag: 2cfe68e5-1966-48e1-9742-4a01a6989c9a
+		summarizeBy: sum
+		sourceColumn: precio_unitario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column importe
+		dataType: double
+		lineageTag: 529c0273-d640-4345-a575-291f7e5072af
+		summarizeBy: sum
+		sourceColumn: importe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition hechos_ventas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\hechos_ventas.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_venta", Int64.Type}, {"fecha", type date}, {"id_cliente", Int64.Type}, {"id_vendedor", Int64.Type}, {"id_producto", Int64.Type}, {"tipo_producto", type text}, {"cantidad", Int64.Type}, {"precio_unitario", type number}, {"importe", type number}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

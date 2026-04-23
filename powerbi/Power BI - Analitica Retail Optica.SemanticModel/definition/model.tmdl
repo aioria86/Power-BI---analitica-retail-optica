@@ -1,0 +1,32 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-PE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["hechos_ventas","dim_vendedor","dim_sede","dim_cliente","dim_producto","dim_producto_lentillas","dim_tipo_lentilla","dim_material_lente","dim_filtro_pantalla","dim_compensacion","dim_color","dim_bridge_lentillas","bridge_producto_color","dim_calendario","Tabla_Medidas"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table hechos_ventas
+ref table dim_calendario
+ref table Tabla_Medidas
+ref table dim_sede
+ref table dim_vendedor
+ref table dim_cliente
+ref table bridge_producto_color
+ref table dim_material_lente
+ref table dim_producto
+ref table dim_filtro_pantalla
+ref table dim_bridge_lentillas
+ref table dim_compensacion
+ref table dim_color
+ref table dim_tipo_lentilla
+ref table dim_producto_lentillas
+
+ref cultureInfo es-ES
+

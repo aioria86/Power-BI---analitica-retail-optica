@@ -1,0 +1,62 @@
+table dim_bridge_lentillas
+	lineageTag: c9b75296-9fd6-45d8-8c30-515e5b375a81
+
+	column id_producto
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f96e6ff-863e-4100-93e2-2d28a8e01772
+		summarizeBy: none
+		sourceColumn: id_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tipo_lentilla
+		dataType: int64
+		formatString: 0
+		lineageTag: 592ff08e-e5a4-4eb4-9471-f7e31dd94f20
+		summarizeBy: none
+		sourceColumn: id_tipo_lentilla
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_compensacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 51a673be-c74a-4475-9d10-61aca411bd47
+		summarizeBy: none
+		sourceColumn: id_compensacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_material_lente
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b3669bb-d0e3-42a2-892c-53fb7ad5488b
+		summarizeBy: none
+		sourceColumn: id_material_lente
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_filtro
+		dataType: int64
+		formatString: 0
+		lineageTag: ba38a5b8-cf18-4ad6-b253-93e5630f54b9
+		summarizeBy: none
+		sourceColumn: id_filtro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_bridge_lentillas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_bridge_lentillas.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_producto", Int64.Type}, {"id_tipo_lentilla", Int64.Type}, {"id_compensacion", Int64.Type}, {"id_material_lente", Int64.Type}, {"id_filtro", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

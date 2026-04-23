@@ -1,0 +1,42 @@
+table dim_color
+	lineageTag: 01bf474b-4747-44f2-b05e-a0ecfbc90368
+
+	column id_color
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dd353e3-6bcf-4008-b6a1-d6f8edccb5b8
+		summarizeBy: none
+		sourceColumn: id_color
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_color
+		dataType: string
+		lineageTag: 820cafeb-b9f8-45e0-8051-ffa0e70ad4c2
+		summarizeBy: none
+		sourceColumn: nombre_color
+
+		annotation SummarizationSetBy = Automatic
+
+	column hex_color
+		dataType: string
+		lineageTag: d52da8a2-aeea-41a3-b09e-f25957ba0859
+		summarizeBy: none
+		sourceColumn: hex_color
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_color = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_color.csv"),[Delimiter=",", Columns=3, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_color", Int64.Type}, {"nombre_color", type text}, {"hex_color", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

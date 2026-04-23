@@ -1,0 +1,252 @@
+table dim_calendario
+	lineageTag: 40cc2609-86ab-4b1b-84ed-3aeeb740823f
+	dataCategory: Time
+
+	column Fecha
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: b5b82b0a-d0cb-4113-8da7-367b78d00b3f
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b8b52cb-0bb5-498e-bf52-40411724998f
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Número'
+		dataType: int64
+		formatString: 0
+		lineageTag: 27ecb72a-94fc-4985-a865-dc4e02195f9c
+		summarizeBy: sum
+		sourceColumn: Mes Número
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		lineageTag: c5b6e911-3ba5-47e6-95a4-f953638bab00
+		summarizeBy: none
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Corto'
+		dataType: string
+		lineageTag: 6d3387b1-1100-4154-85ee-f67542880982
+		summarizeBy: none
+		sourceColumn: Mes Corto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año-Mes
+		dataType: string
+		lineageTag: 64b90780-eb74-4c94-9222-93b2a85a6dc7
+		summarizeBy: none
+		sourceColumn: Año-Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Año'
+		dataType: string
+		lineageTag: 3311f4be-1eaa-4b25-ab74-e820bcba67d9
+		summarizeBy: none
+		sourceColumn: Mes Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trimestre Número'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4460e963-443b-4753-8655-23e09472c483
+		summarizeBy: sum
+		sourceColumn: Trimestre Número
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		lineageTag: 72da5bb6-8d6e-4c7a-a6ed-fad5640ac103
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año-Trimestre
+		dataType: string
+		lineageTag: 7308bf5e-1b41-492e-8b33-0054e1f67a95
+		summarizeBy: none
+		sourceColumn: Año-Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana del Año'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f6fe991-3856-4259-b45d-4d9f479c2892
+		summarizeBy: sum
+		sourceColumn: Semana del Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Día
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a81a9cb-0c04-4bd2-adc2-959038febb8c
+		summarizeBy: sum
+		sourceColumn: Día
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Día Semana Nº'
+		dataType: int64
+		formatString: 0
+		lineageTag: 44067db2-daea-426c-a1b4-fd01a91f63b1
+		summarizeBy: sum
+		sourceColumn: Día Semana Nº
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Día Semana'
+		dataType: string
+		lineageTag: 9743a8ff-1eb6-413c-b44f-c4f03809e4d4
+		summarizeBy: none
+		sourceColumn: Día Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Día'
+		dataType: string
+		lineageTag: ae86942f-7f53-4b30-a99b-4043ea23519c
+		summarizeBy: none
+		sourceColumn: Tipo Día
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Es Hoy'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 717df088-6078-4d99-b31c-2a13ac6afd7a
+		summarizeBy: none
+		sourceColumn: Es Hoy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Es Mes Actual'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d2d72223-7b66-489f-abd8-191cd025708d
+		summarizeBy: none
+		sourceColumn: Es Mes Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Es Año Actual'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aa720b88-6d12-4a3d-9384-06df047da337
+		summarizeBy: none
+		sourceColumn: Es Año Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_calendario = m
+		mode: import
+		source = ```
+				let
+				    Origen = let
+				    // 1. Fuente (tabla de hechos)
+				    Source = hechos_ventas,
+				
+				    // 2. Asegurar tipo fecha
+				    FechaCol = Table.TransformColumnTypes(Source, {{"fecha", type date}}),
+				
+				    // 3. Rango dinámico
+				    StartDate = Date.From(List.Min(FechaCol[fecha])),
+				    EndDate   = Date.From(List.Max(FechaCol[fecha])),
+				    TotalDays = Duration.Days(EndDate - StartDate),
+				
+				    // 4. Lista de fechas
+				    DateList = List.Dates(StartDate, TotalDays + 1, #duration(1,0,0,0)),
+				
+				    // 5. Tabla base
+				    Calendario = Table.FromList(DateList, Splitter.SplitByNothing(), {"Fecha"}),
+				
+				    // =========================
+				    // COLUMNAS DE TIEMPO
+				    // =========================
+				
+				    Año = Table.AddColumn(Calendario, "Año", each Date.Year([Fecha]), Int64.Type),
+				
+				    MesNumero = Table.AddColumn(Año, "Mes Número", each Date.Month([Fecha]), Int64.Type),
+				
+				    MesNombre = Table.AddColumn(MesNumero, "Mes", each Text.Proper(Date.ToText([Fecha], "MMMM", "es-ES")), type text),
+				
+				    MesCorto = Table.AddColumn(MesNombre, "Mes Corto", each Text.Proper(Date.ToText([Fecha], "MMM", "es-ES")), type text),
+				
+				    AñoMes = Table.AddColumn(MesCorto, "Año-Mes", each Date.ToText([Fecha], "yyyy-MM"), type text),
+				
+				    MesAño = Table.AddColumn(AñoMes, "Mes Año", each Text.Proper(Date.ToText([Fecha], "MMM yyyy", "es-ES")), type text),
+				
+				    TrimestreNum = Table.AddColumn(MesAño, "Trimestre Número", each Date.QuarterOfYear([Fecha]), Int64.Type),
+				
+				    Trimestre = Table.AddColumn(TrimestreNum, "Trimestre", each "T" & Text.From([Trimestre Número]), type text),
+				
+				    AñoTrimestre = Table.AddColumn(Trimestre, "Año-Trimestre", each Text.From([Año]) & "-T" & Text.From([Trimestre Número]), type text),
+				
+				    Semana = Table.AddColumn(AñoTrimestre, "Semana del Año", each Date.WeekOfYear([Fecha]), Int64.Type),
+				
+				    Dia = Table.AddColumn(Semana, "Día", each Date.Day([Fecha]), Int64.Type),
+				
+				    DiaSemanaNum = Table.AddColumn(Dia, "Día Semana Nº", each Date.DayOfWeek([Fecha], Day.Monday) + 1, Int64.Type),
+				
+				    DiaSemana = Table.AddColumn(DiaSemanaNum, "Día Semana", each Text.Proper(Date.ToText([Fecha], "dddd", "es-ES")), type text),
+				
+				    TipoDia = Table.AddColumn(DiaSemana, "Tipo Día", each if [Día Semana Nº] >= 6 then "Fin de semana" else "Laboral", type text),
+				
+				    // =========================
+				    // FLAGS INTELIGENTES
+				    // =========================
+				
+				    EsHoy = Table.AddColumn(
+				        TipoDia,
+				        "Es Hoy",
+				        each Date.From(DateTime.LocalNow()) = [Fecha],
+				        type logical
+				    ),
+				
+				    EsMesActual = Table.AddColumn(
+				        EsHoy,
+				        "Es Mes Actual",
+				        each Date.Month([Fecha]) = Date.Month(DateTime.LocalNow()) 
+				            and Date.Year([Fecha]) = Date.Year(DateTime.LocalNow()),
+				        type logical
+				    ),
+				
+				    EsAñoActual = Table.AddColumn(
+				        EsMesActual,
+				        "Es Año Actual",
+				        each Date.Year([Fecha]) = Date.Year(DateTime.LocalNow()),
+				        type logical
+				    )
+				
+				in
+				    EsAñoActual,
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Fecha", type date}})
+				in
+				    #"Tipo cambiado"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,60 @@
+table dim_producto_lentillas
+	lineageTag: 37bc132c-f645-4365-be1a-a130a1c71e0e
+
+	column id_producto
+		dataType: int64
+		formatString: 0
+		lineageTag: b2396c78-7dc3-4f40-b6bf-cd1b8f51d887
+		summarizeBy: none
+		sourceColumn: id_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_modelo
+		dataType: string
+		lineageTag: 905f79ff-b862-4bb0-a0c3-9c2f4994557e
+		summarizeBy: none
+		sourceColumn: nombre_modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column marca
+		dataType: string
+		lineageTag: 5166cfb7-680d-4247-a37b-e2a8d76bdb43
+		summarizeBy: none
+		sourceColumn: marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio
+		dataType: double
+		lineageTag: 0cb380d8-be2e-4ba4-9fcc-d1d138509dff
+		summarizeBy: none
+		sourceColumn: precio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column categoria
+		dataType: string
+		lineageTag: b612ed2a-81c8-42b4-b524-7bcaeca1f363
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_producto_lentillas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Juan Manuel\Documents\PERSONALES\PROYECTOS\Power-BI---analitica-retail-optica\data\raw\dim_producto_lentillas.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"id_producto", Int64.Type}, {"nombre_modelo", type text}, {"marca", type text}, {"precio", type number}, {"categoria", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

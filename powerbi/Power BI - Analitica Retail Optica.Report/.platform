@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Power BI - Analitica Retail Optica"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "154ea8b6-20f0-449a-9303-02bee6f80ca8"
+  }
+}

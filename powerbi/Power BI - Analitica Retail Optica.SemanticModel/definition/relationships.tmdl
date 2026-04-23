@@ -1,0 +1,54 @@
+relationship AutoDetected_382e31ab-16e1-4bcf-aeb9-170c142a83a2
+	fromColumn: hechos_ventas.id_cliente
+	toColumn: dim_cliente.id_cliente
+
+relationship AutoDetected_8850ea11-7604-4e1d-a9b4-1c8713881a13
+	fromColumn: hechos_ventas.id_vendedor
+	toColumn: dim_vendedor.id_vendedor
+
+relationship AutoDetected_1146297e-7a1e-489f-a7d1-8d6777b6d7ef
+	fromColumn: hechos_ventas.id_producto
+	toColumn: dim_producto.id_producto
+
+relationship AutoDetected_6205d101-c80a-482d-8641-a919dc8f1742
+	fromColumn: bridge_producto_color.id_producto
+	toColumn: dim_producto.id_producto
+
+relationship AutoDetected_41dd732c-546b-4ea0-af42-95287652ef7f
+	fromColumn: dim_vendedor.id_sede
+	toColumn: dim_sede.id_sede
+
+relationship AutoDetected_24cc8cfe-9a0b-427e-8667-4b66bcec8830
+	fromColumn: bridge_producto_color.id_color
+	toColumn: dim_color.id_color
+
+relationship AutoDetected_7946fed9-974c-4f24-8c19-48dbb40268cd
+	fromColumn: dim_bridge_lentillas.id_material_lente
+	toColumn: dim_material_lente.id_material_lente
+
+relationship AutoDetected_8c2762ad-1e75-4d07-916d-c844102abaad
+	fromColumn: dim_bridge_lentillas.id_filtro
+	toColumn: dim_filtro_pantalla.id_filtro
+
+relationship AutoDetected_9082f7f8-4776-4ccd-b3c3-6cbf9a3c1e89
+	fromColumn: dim_bridge_lentillas.id_tipo_lentilla
+	toColumn: dim_tipo_lentilla.id_tipo_lentilla
+
+relationship AutoDetected_a5461d7e-e5d4-4800-a6af-3b2b540e7147
+	fromColumn: dim_bridge_lentillas.id_compensacion
+	toColumn: dim_compensacion.id_compensacion
+
+relationship 5d4fe654-30a0-61a7-604b-d6a75851d09d
+	fromColumn: hechos_ventas.id_producto
+	toColumn: dim_producto_lentillas.id_producto
+
+relationship a6bb02b7-2246-aacf-260d-67562f0a204b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dim_bridge_lentillas.id_producto
+	toColumn: dim_producto_lentillas.id_producto
+
+relationship bdd0f6ec-9791-536c-1a78-87fd5d313dc3
+	fromColumn: hechos_ventas.fecha
+	toColumn: dim_calendario.Fecha
+
