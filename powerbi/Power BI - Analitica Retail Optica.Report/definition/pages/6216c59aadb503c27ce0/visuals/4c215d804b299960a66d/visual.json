@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "4c215d804b299960a66d",
+  "position": {
+    "x": 321.4712643678161,
+    "y": 54.620689655172427,
+    "z": 4000,
+    "height": 228.41379310344828,
+    "width": 315.58620689655174,
+    "tabOrder": 4000
+  },
+  "visualGroup": {
+    "displayName": "Grupo KPI Ticket Promedio",
+    "groupMode": "ScaleMode"
+  }
+}

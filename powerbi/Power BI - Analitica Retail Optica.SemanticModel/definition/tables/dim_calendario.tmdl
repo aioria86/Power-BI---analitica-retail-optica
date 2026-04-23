@@ -37,6 +37,9 @@ table dim_calendario
 		lineageTag: c5b6e911-3ba5-47e6-95a4-f953638bab00
 		summarizeBy: none
 		sourceColumn: Mes
+		sortByColumn: 'Mes Número'
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
